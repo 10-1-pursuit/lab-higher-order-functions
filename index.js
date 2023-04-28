@@ -16,13 +16,13 @@ function find(array, callback) {
   for (let element of array) {
     if(callback(element)){
       return element
-    }
+    };
     // const callback = (element) => {
     //   return element
     // }
     // Write your code here.
-  }
-}
+  };
+};
 
 /**
  * Returns an array of all elements in the array that cause the callback to return `true`. If the array is empty or no elements cause the callback to return `true`, then return an empty array.
@@ -41,6 +41,10 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
+    if(callback(element)){
+      // console.log(element)
+      result.push(element)
+    }
     // Write your code here.
   }
   return result;
@@ -63,6 +67,9 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
+
+      result.push(callback(element))
+
     // Write your code here.
   }
   return result;
@@ -84,6 +91,7 @@ function map(array, callback) {
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    callback(array[i], i, array)
   }
 }
 
