@@ -14,8 +14,14 @@
  */
 function find(array, callback) {
   for (let element of array) {
+    let foundElement = callback(element)
+    if  (foundElement === true ){
+      return element
+    }
+
     // Write your code here.
   }
+  return undefined
 }
 
 /**
@@ -35,6 +41,9 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
+    if (callback(element)){
+      result.push (element);
+    }
     // Write your code here.
   }
   return result;
@@ -57,16 +66,20 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
+      result.push(callback(element));
+    }
+    return result;
+      
     // Write your code here.
   }
-  return result;
-}
+  
+
 
 /**
  * Does not return anything. Passes each element of the array into the callback along with the index and the array, in that order.
  * @param {*[]} array - An array of elements. Could be anything!
  * @param {function} callback - A callback that accepts three arguments: element, index, and the entire array.
- *
+ *          
  * EXAMPLE:
  *  forEach([10, 20, 30], (element, index, array) => {
  *    console.log(element, index, array.length)
@@ -77,6 +90,7 @@ function map(array, callback) {
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
+    callback (array [i], i , array)
     // Write your code here.
   }
 }
